@@ -7,11 +7,11 @@ const rl = readline.createInterface({
 
 
 
-const askQuestion = (questions, index = 0, answers = []) => {
+const askQuestion = (questions, index = 0, answers = []) => {//starts index at 0, and stores answers in array. Declared in function parameter due to recurrsion.
   if (index < questions.length) {
     rl.question(questions[index], (answer) => {
       answers.push(answer);
-      askQuestion(questions, index + 1, answers);
+      askQuestion(questions, index + 1, answers);//recurrsion
     });
   } else {
     displayResults(answers);
@@ -38,10 +38,3 @@ const questions = [
 ];
 
 askQuestion(questions);
-// What's your name? Nicknames are also acceptable :)
-// What's an activity you like doing?
-// What do you listen to while doing that?
-// Which meal is your favourite (eg: dinner, brunch, etc.)
-// What's your favourite thing to eat for that meal?
-// Which sport is your absolute favourite?
-// What is your superpower? In a few words, tell us what you are amazing at!
